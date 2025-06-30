@@ -43,7 +43,7 @@ python main.py
 
 ---
 
-## 📌 Pendiente por implementar (opcional)
+## 📌 Pendiente por implementar
 
 - Interfaz gráfica con Tkinter
 - Exportación del historial a Excel o PDF
