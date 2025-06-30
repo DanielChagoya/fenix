@@ -1,4 +1,6 @@
 # 🏋️‍♂️ Fénix - Sistema de Registro de Entrenamiento
+![version](https://img.shields.io/badge/versión-v1.0.0-blue)
+
 
 **Fénix** es una aplicación de consola escrita en Python para gestionar la entrada y salida de miembros en un gimnasio. El sistema permite llevar un control en tiempo real y almacenar los registros en archivos JSON para su posterior consulta.
 
