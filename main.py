@@ -34,14 +34,3 @@ while True:
     else:
         print("Opcion no valida, elija otra opcion")
 
-
-
-
-
-
-
-"""
-print(type(menu()))
-
-sirve para saber el tipo del elemento 
-"""
