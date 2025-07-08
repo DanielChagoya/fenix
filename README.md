@@ -1,41 +1,41 @@
-# 🏋️‍♂️ Fénix - Sistema de Registro de Entrenamiento
-![version](https://img.shields.io/badge/versión-v1.0.0-blue)
+# 🦅 Fénix - Control de Entradas y Salidas
+Fénix es una aplicación de escritorio desarrollada en Python con Tkinter para gestionar el control de entradas y salidas de miembros en un gimnasio.
+Ideal para pequeños gimnasios que buscan llevar un control básico pero ordenado.
+---
 
-
-**Fénix** es una aplicación de consola escrita en Python para gestionar la entrada y salida de miembros en un gimnasio. El sistema permite llevar un control en tiempo real y almacenar los registros en archivos JSON para su posterior consulta.
+## ✨ Características
+- 🛂 Registro de entrada y salida de miembros con validación.
+- 🗂️ Visualización del historial completo en una ventana aparte con scroll.
+- 🎨 Interfaz gráfica clara con colores personalizados.
+- 📁 Manejo de registros en archivo CSV (registro_fenix.csv).
+- 🧠 Validaciones para evitar registros duplicados y entradas vacías.
+- 🧩 Modularización del código para fácil mantenimiento y escalabilidad.
 
 ---
 
-## ✨ Funcionalidades
-
-- 📥 Registrar entrada de miembros  
-- 📤 Registrar salida de miembros  
-- 👀 Visualizar miembros actualmente dentro del gimnasio  
-- 💾 Guardar historial de registros en archivo JSON  
+## 🛠 Requisitos
+- Python 3.x
+- Módulo tkinter (viene preinstalado en la mayoría de distribuciones de Python)
 
 ---
 
-## 📁 Estructura del Proyecto
+## 🗂️ Estructura del proyecto
 
-La estructura básica del proyecto es:
-
-```text
-fenix/
-├── main.py
-├── registro.py
-├── miembro.py
-├── utils.py
-└── data/
-    └── historial.json
+```plaintext
+- main.py              # Punto de entrada y configuración de la interfaz.
+- registros.py         # Funciones para registrar entradas y salidas.
+- historial.py         # Función para mostrar el historial completo.
+- vista.py             # Funciones relacionadas con la interfaz gráfica (listas, validaciones).
+- estilos.py           # Variables y constantes de colores, fuentes y estilos.
+- registro_fenix.csv   # Archivo donde se guardan los registros (inicialmente vacío).
 ```
 
----
+## ▶️ Cómo usar
+- 📥 Clona o descarga el repositorio.
+- 🖥 Ejecuta el archivo main.py con Python.
+- ✅ Usa la interfaz para registrar entradas y salidas.
+- 📚 Visualiza el historial completo con el botón correspondiente.
 
-## 🚀 Cómo ejecutar
-
-1. Clona o descarga el repositorio  
-2. Asegúrate de tener **Python 3.x** instalado  
-3. Ejecuta el proyecto desde la terminal:
 
 ```bash
 python main.py
@@ -43,6 +43,7 @@ python main.py
 
 ---
 
+<<<<<<< HEAD
 ## 📌 Pendiente por implementar
 
 - Interfaz gráfica con Tkinter
@@ -50,11 +51,22 @@ python main.py
 - Registro por fecha y hora detallada
 - Control de membresía activa/inactiva
 
+=======
+## 🚀 Próximos pasos
+- 🔄 Migrar el almacenamiento de registros a una base de datos (MySQL o SQLite).
+- 🧱 Mejorar la interfaz con más funcionalidades y diseño visual.
+- 🔍 Añadir búsqueda, filtros y reportes para el historial.
+>>>>>>> b7da7aa (Versión 2 - Interfaz gráfica modularizada con Tkinter y mejoras visuales)
 
 ---
 
+## 👨‍💻 Autor
+Daniel Chagoya
+
+--- 
+
 ## 📃 Licencia
-Este proyecto es de uso educativo y libre. Siéntete libre de adaptarlo o mejorar su funcionalidad.
+Este proyecto está bajo la licencia MIT.
 
 
 

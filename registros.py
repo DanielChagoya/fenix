@@ -1,61 +1,44 @@
-from miembro import Miembro
-import json
+# registros.py
 
+from datetime import datetime
+from tkinter import messagebox
 
-# Lista de folios dentro del gimnasio
-dentro = []
+def registrar_entrada(nombre):
+    nombre = nombre.strip()
 
-def guardar_dentro(archivo="dentro.json"):
-    with open(archivo, "w") as f:
-        json.dump(dentro, f)
+    if not nombre:
+        messagebox.showwarning("Campo vacío", "Por favor, ingresa un nombre válido.")
+        return
 
-def cargar_dentro(archivo="dentro.json"):
-    global dentro
+    hora = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
+
     try:
-        with open(archivo, "r") as f:
-            dentro = json.load(f)
+        with open("registro_fenix.csv", "r", encoding="utf-8") as archivo:
+            lineas = archivo.readlines()
+            if lineas:
+                ultima_linea = lineas[-1].strip()
+                ultimo_nombre, ultimo_tipo, _ = ultima_linea.split(",", 2)
+                if ultimo_nombre == nombre and ultimo_tipo == "entrada":
+                    messagebox.showwarning("Registro duplicado", f"{nombre} ya tiene una entrada registrada.")
+                    return
     except FileNotFoundError:
-        dentro = []
+        pass  # Si no existe el archivo, se creará más abajo
 
-# Lista de folios que están dentro del gimnasio ahora mismo
+    with open("registro_fenix.csv", "a", encoding="utf-8") as archivo:
+        archivo.write(f"{nombre},entrada,{hora}\n")
 
-def registrar_entrada():
-    folio = input("Ingresa tu folio: ").upper().strip()
-    datos = Miembro.obtener_miembro(folio)
+    messagebox.showinfo("Entrada registrada", f"{nombre} ha entrado a las {hora}")
 
-    if datos and datos["estatus"] == "activo":
-        if folio not in dentro:
-            dentro.append(folio)
-            guardar_dentro()  # <-- Guarda cambios aquí
-            print(f"{datos['nombre']} ha registrado su entrada.")
-        else:
-            print("Ya estás registrado dentro.")
-    else:
-        print("Folio no válido o inactivo.")
+def registrar_salida(nombre):
+    nombre = nombre.strip()
 
-def registrar_salida():
-    folio = input("Ingresa tu folio: ").upper().strip()
+    if not nombre:
+        messagebox.showwarning("Campo vacío", "Por favor, ingresa un nombre válido.")
+        return
 
-    if folio in dentro:
-        dentro.remove(folio)
-        guardar_dentro()  # <-- Guarda cambios aquí
-        print("Hasta luego !!!")
-    else:
-        print("No estás registrado dentro.")
+    hora = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
 
+    with open("registro_fenix.csv", "a", encoding="utf-8") as archivo:
+        archivo.write(f"{nombre},salida,{hora}\n")
 
-
-def mostrar_miembros_dentro():
-    if not dentro:
-        print("No hay miembros dentro del gimnasio.")
-    else:
-        print("Miembros dentro:")
-        for folio in dentro:
-            datos = Miembro.obtener_miembro(folio)
-            if datos:
-                print(f"- {datos['nombre']} (Folio: {folio})")
-
-
-
-
-
+    messagebox.showinfo("Salida registrada", f"{nombre} ha salido a las {hora}")
